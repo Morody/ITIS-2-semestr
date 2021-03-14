@@ -15,16 +15,16 @@ namespace Train
         public TimeSpan timeSpan;
         public DateTime factArrivalTime;
 
-        // число вагонов, станция назначения, время прибытия
+        //число вагонов, станция назначения, время прибытия
         // время отправления, расчет времени пути, признак опоздания
 
         public string Name
         {
-            get { return nameTrain;  }
+            get { return nameTrain; }
 
             set { nameTrain = value; }
         }
-         public int Number
+        public int Number
         {
             get { return numberTrain; }
 
@@ -42,6 +42,15 @@ namespace Train
             this.factArrivalTime = factArrivalTime;
         }
 
+        readonly List<Wagons> wagons = new List<Wagons>(5);
+        
+
+        public Wagons this[int index]
+        {
+            get { return wagons[index]; }
+            set { wagons[index] = value; }
+        }
+
         public void PrintLate()
         {
 
@@ -53,7 +62,7 @@ namespace Train
             else
                 Console.WriteLine("Поезд опоздал");
         }
-            
+
         public void PrintInfo()
         {
             Console.WriteLine("-------(********)--------");
